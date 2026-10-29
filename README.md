@@ -48,6 +48,8 @@ kannaka-crystal run bank.crystal                              # instantiate + ST
 
 Resolution reads kannaka-crystal's registry (`--registry`, else `$KANNAKA_CRYSTAL_DATA_DIR/registry.json`, else `~/.kannaka-crystal/registry.json`). Installed beside the `kannaka` CLI it is discovered as a plugin: `kannaka hdl grow …`.
 
+From an AI, the same two verbs are reachable through [QuantumOS's hub](https://github.com/kannaka-labs/QuantumOS/tree/main/tools/qos-hub) (ADR-0027, one policy-gated MCP endpoint for the constellation's CLIs): its example config carries an `hdl` entry with `check` and `grow --emit json --unresolved stub` over `examples/*.khdl`, both allowed as reads; unresolved components are stubbed there, never invented.
+
 Unresolved components follow an explicit policy (`--unresolved`, ADR-0002 §10): **`speculative`** (default) lets backends approximate them — the historical proxy-pulse behavior; **`stub`** keeps them declared-but-inert (no pulses); **`strict`** fails the build — use it for scientific runs:
 
 ```bash
